@@ -1,0 +1,47 @@
+/* Custom overrides on top of Bootstrap */
+
+body {
+  /* ACCESSIBILITY (dyslexia): a plain sans-serif font is easier to read than */
+  /* a decorative or serif font, since letters are less likely to be confused */
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  /* ACCESSIBILITY (dyslexia + low vision): extra line spacing and slightly */
+  /* wider letter spacing reduces crowding, which is a common reading barrier */
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+
+  /* ACCESSIBILITY (low vision): a comfortably large base font size, set in */
+  /* rem units so it still respects a user's browser zoom/text-size setting */
+  font-size: 1.05rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* ACCESSIBILITY (motor disabilities): the skip link is hidden off-screen by */
+/* default, then jumps into view once a keyboard user Tabs to it, so it never */
+/* clutters the page for people who don't need it */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ACCESSIBILITY (autism spectrum / vestibular disorders): people who have */
+/* set "reduce motion" in their OS/browser settings often find animation and */
+/* motion distracting or physically uncomfortable. This respects that choice */
+/* by turning off Bootstrap's collapse/fade transitions for them. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
